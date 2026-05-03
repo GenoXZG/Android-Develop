@@ -1,0 +1,20 @@
+# Compilación y binarios
+.gradle/
+build/
+app/build/
+
+# Configuración del IDE (Android Studio / IntelliJ)
+.idea/
+*.iml
+*.iws
+*.out
+
+# Configuración local del SDK y secretos
+local.properties
+
+# Archivos temporales de sistema y logs
+*.log
+.DS_Store
+
+# Opcional: Si no vas a compartir el proyecto con usuarios de Windows
+gradlew.bat
