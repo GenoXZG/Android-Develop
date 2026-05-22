@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Imagen del Animal -->
+    <ImageView
+        android:id="@+id/imageViewAnimal"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerInside"
+        android:contentDescription="Imagen del animal seleccionado" />
+
+    <!-- Nombre del Animal -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#212121"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <!-- Descripción del Animal -->
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textColor="#555555"
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.2" />
+
+</LinearLayout>

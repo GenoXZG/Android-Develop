@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Catálogo de Animales</string>
+    <string name="titulo_perro">Perro</string>
+    <string name="titulo_gato">Gato</string>
+    <string name="titulo_vaca">Vaca</string>
+
+    <string name="descripcion_perro">El perro es un mamífero domesticado de la familia de los cánidos. Es conocido por su lealtad, inteligencia y capacidad de interactuar estrechamente con los seres humanos.</string>
+    <string name="descripcion_gato">El gato doméstico es un felino carnívoro de tamaño pequeño. Destaca por su agilidad, independencia, gran sentido de la vista nocturna y naturaleza sigilosa.</string>
+    <string name="descripcion_vaca">La vaca es un mamífero artiodáctilo rumiante de gran tamaño. Se cría de forma doméstica para la obtención de carne, leche y productos derivados lácteos.</string>
+</resources>
