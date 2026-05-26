@@ -62,7 +62,7 @@ class PetViewModel(private val repository: PetRepository) : ViewModel() {
             val newCare = CareEntity(
                 petId = petId,
                 careType = careType,
-                dateTimestamp = System.currentTimeMillis(), // Unix timestamp actual
+                dateTimestamp = timestamp, // Unix timestamp actual
                 notes = notes.takeIf { it.isNotBlank() }
             )
             repository.insertCareLog(newCare)
