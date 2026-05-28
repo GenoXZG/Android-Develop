@@ -26,7 +26,7 @@ import com.example.archivos.data.models.Ticket
 
 class MainActivity : ComponentActivity() {
 
-    // El helper de la BD debe sobrevivir al ciclo de vida de la actividad
+    
     private lateinit var dbHelper: TicketDbHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onDestroy() {
-        dbHelper.close() // Crítico: Siempre limpiar recursos
+        dbHelper.close() 
         super.onDestroy()
     }
 }
@@ -62,7 +62,7 @@ fun obtenerTicketsDeBD(dbHelper: TicketDbHelper): List<Ticket> {
 
     val cursor = db.query(
         TicketContract.TicketEntry.TABLE_NAME,
-        projection, null, null, null, null, "${BaseColumns._ID} DESC" // Orden descendente (más nuevos primero)
+        projection, null, null, null, null, "${BaseColumns._ID} DESC" 
     )
 
     val listaTickets = mutableListOf<Ticket>()
@@ -87,7 +87,7 @@ fun BitacoraScreen(dbHelper: TicketDbHelper) {
     var titulo by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
 
-    // ESTADO DE LA LISTA: Si esta variable cambia, la LazyColumn se redibuja automáticamente
+    
     var listaTickets by remember { mutableStateOf(obtenerTicketsDeBD(dbHelper)) }
 
     LaunchedEffect(Unit) {
@@ -98,7 +98,7 @@ fun BitacoraScreen(dbHelper: TicketDbHelper) {
         contract = ActivityResultContracts.CreateDocument("text/plain")
     ) { uri ->
         uri?.let {
-            // TEMA 15: Exportamos la lista actual mapeándola a un solo String
+            
             val historial = listaTickets.joinToString(separator = "\n\n") { ticket ->
                 "ID: ${ticket.id} | Título: ${ticket.titulo}\nDescripción: ${ticket.descripcion}"
             }
@@ -112,7 +112,7 @@ fun BitacoraScreen(dbHelper: TicketDbHelper) {
         modifier = Modifier.fillMaxSize().padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // --- ZONA DE ENTRADA DE DATOS ---
+      
         OutlinedTextField(
             value = titulo,
             onValueChange = { titulo = it },
@@ -154,7 +154,7 @@ fun BitacoraScreen(dbHelper: TicketDbHelper) {
                     descripcion = ""
                     internalHelper.guardarBorrador("")
 
-                    // ¡AQUÍ ESTÁ LA MAGIA! Actualizamos el estado, y Compose redibuja la lista sin Adapters
+                    
                     listaTickets = obtenerTicketsDeBD(dbHelper)
                 }
             }) {
@@ -171,7 +171,6 @@ fun BitacoraScreen(dbHelper: TicketDbHelper) {
         Divider()
         Text("Historial de Tickets", style = MaterialTheme.typography.titleMedium)
 
-        // --- ZONA DE LA LISTA (El "Adapter" de Compose) ---
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -183,7 +182,6 @@ fun BitacoraScreen(dbHelper: TicketDbHelper) {
     }
 }
 
-// Este Composable es el equivalente a tu antiguo archivo de layout XML para el ViewHolder
 @Composable
 fun TicketItem(ticket: Ticket) {
     Card(
