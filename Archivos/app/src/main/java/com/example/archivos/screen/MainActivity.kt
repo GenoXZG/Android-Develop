@@ -1,5 +1,4 @@
 package com.example.archivos.screen
-
 import android.content.ContentValues
 import android.os.Bundle
 import android.widget.Toast
@@ -23,6 +22,9 @@ import androidx.compose.material3.CardDefaults
 import com.example.archivos.data.sqlite.TicketDbHelper
 import android.provider.BaseColumns
 import com.example.archivos.data.models.Ticket
+
+// ALUMNO: Zarate Gonzalez Luis David
+// Materia: Programacion Movil 1
 
 class MainActivity : ComponentActivity() {
 
