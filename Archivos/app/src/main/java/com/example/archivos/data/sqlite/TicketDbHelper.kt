@@ -13,15 +13,12 @@ class TicketDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Al subir la versión de la base de datos, destruimos la anterior y la recreamos.
-        // ADVERTENCIA CRÍTICA: En un entorno de producción, esto borra todos los datos del usuario.
-        // Aquí se deberían programar scripts de migración (ALTER TABLE), pero para este alcance es suficiente.
+
         db.execSQL(SQL_DELETE_ENTRIES)
         onCreate(db)
     }
 
     companion object {
-        // Si modificas las columnas en el Contract en el futuro, DEBES cambiar la versión a 2.
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Bitacora.db"
 
